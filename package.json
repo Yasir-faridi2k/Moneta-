@@ -1,0 +1,14 @@
+{
+  "name": "moneta-simplified",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": ["apps/web", "apps/api"],
+  "scripts": {
+    "dev": "concurrently -k -n api,web -c green,blue \"npm run dev -w @moneta/api\" \"npm run dev -w @moneta/web\"",
+    "build": "npm run build -w @moneta/api && npm run build -w @moneta/web",
+    "typecheck": "npm run typecheck -w @moneta/api && npm run typecheck -w @moneta/web"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
